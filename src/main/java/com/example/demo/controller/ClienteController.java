@@ -4,6 +4,7 @@ package com.example.demo.controller;
 import com.example.demo.model.Carrinho;
 import com.example.demo.model.Cliente;
 import com.example.demo.model.Venda;
+import com.example.demo.repository.ClienteRepository;
 import com.example.demo.services.Autenticacao;
 import com.example.demo.services.CarrinhoService;
 import com.example.demo.services.ClienteService;
@@ -11,6 +12,7 @@ import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import java.util.Date;
 import java.util.NoSuchElementException;
+import javassist.tools.web.BadHttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -85,11 +87,40 @@ public class ClienteController {
        return new ResponseEntity(HttpStatus.OK);
     }
 
+    
+    
+    
+    
     @RequestMapping(method = RequestMethod.PUT)
     void editarCliente() {
         System.out.println("edita");
     }
 
+  /*
+    //Code rafael
+    @Autowired
+    private ClienteRepository repository;
+
+    public editarCliente(@PathVariable("id") long id, 
+    @RequestBody Cliente cliente) throws BadHttpRequest {
+    if (repository.exists(id)) {
+            cliente.setId(id);
+            return repository.save(cliente);
+        } else {
+            throw new BadHttpRequest();
+        }
+    }
+*/
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
     @RequestMapping(method = RequestMethod.GET,
             value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<Venda> mostraCliente(@PathVariable Long id) {
