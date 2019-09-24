@@ -2,7 +2,7 @@
 package com.example.demo.services;
 
 import com.example.demo.model.Imagem;
-import com.example.demo.model.Produto;
+import com.example.demo.model.Medicamentos;
 import com.example.demo.repository.ImagemRepository;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -84,7 +84,7 @@ public class ImagemService {
         return UUID.randomUUID() + ext;
     }
 
-    public void storeImagem(MultipartFile file, Produto p) throws IOException {
+    public void storeImagem(MultipartFile file, Medicamentos p) throws IOException {
         String relativePath = generatePath() + generateUUIDandExtension(file);
         Path absulutePath;
         absulutePath = Paths.get(
@@ -97,7 +97,7 @@ public class ImagemService {
 
             Imagem img = new Imagem();
             img.setPatch(relativePath);
-            img.setProduto(p);
+            img.setMedicamento(p);
 
             imagemRepository.save(img);
 

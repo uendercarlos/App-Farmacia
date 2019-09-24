@@ -1,7 +1,8 @@
 
 package com.example.demo.services;
 
-import static com.example.demo.services.Autenticacao.key;
+import com.example.demo.config.Autenticacao;
+import static com.example.demo.config.Autenticacao.key;
 import io.jsonwebtoken.IncorrectClaimException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MissingClaimException;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  
   @author Alcídia Cristina
  */
-public class FiltroAdministrador extends org.springframework.web.filter.GenericFilterBean {
+public class FiltroFarmacia extends org.springframework.web.filter.GenericFilterBean {
 
     @Override
     public void doFilter(ServletRequest sr, ServletResponse sr1, FilterChain fc)
@@ -30,7 +31,7 @@ public class FiltroAdministrador extends org.springframework.web.filter.GenericF
         try {
 
             Jwts.parser()
-                    .setSigningKey(key)
+                    .setSigningKey(Autenticacao.key)
                     .require("adm", true)
                     .parseClaimsJws(token);
 

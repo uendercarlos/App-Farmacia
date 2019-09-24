@@ -2,6 +2,7 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,11 +14,11 @@ import javax.persistence.OneToOne;
   @author Alcídia Cristina
  */
 @Entity
-public class Imagem {
+public class Imagem implements Serializable{
     
     private Long id;
     private String patch;
-    private Produto produto;
+    private Medicamentos medicamento;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,12 +41,13 @@ public class Imagem {
     
     @OneToOne()
     @JsonIgnore
-    public Produto getProduto() {
-        return produto;
+    public Medicamentos getMedicamento() {
+        return medicamento;
     }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
+    public void setMedicamento(Medicamentos medicamento) {
+        this.medicamento = medicamento;
     }
+   
     
 }

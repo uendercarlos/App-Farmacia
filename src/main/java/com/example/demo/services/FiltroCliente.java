@@ -1,7 +1,8 @@
 
 package com.example.demo.services;
 
-import static com.example.demo.services.Autenticacao.key;
+import com.example.demo.config.Autenticacao;
+import static com.example.demo.config.Autenticacao.key;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import java.io.IOException;
@@ -32,7 +33,7 @@ public class FiltroCliente extends org.springframework.web.filter.GenericFilterB
             Jwts.parser()
                   
                     
-                    .setSigningKey(key)
+                    .setSigningKey(Autenticacao.key)
                     .parseClaimsJws(token);
             
         }catch(JwtException e){

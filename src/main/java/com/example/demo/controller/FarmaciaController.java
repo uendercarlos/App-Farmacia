@@ -1,12 +1,12 @@
 
 package com.example.demo.controller;
 
-import com.example.demo.services.AdministradorService;
+import com.example.demo.services.FarmaciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.demo.model.Administrador;
-import com.example.demo.services.Autenticacao;
+import com.example.demo.model.Farmacia;
+import com.example.demo.config.Autenticacao;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import java.util.Date;
@@ -23,17 +23,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @RestController
 @RequestMapping(value = "/administrador")
-public class AdministradorController {
+public class FarmaciaController {
     
     @Autowired
-    AdministradorService admnistradorService;
+    FarmaciaService farmaciaService;
     
     
     @RequestMapping(method = RequestMethod.POST,value = "/autenticar",
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity autenticar(@RequestBody Administrador adm) {
+    public ResponseEntity autenticar(@RequestBody Farmacia adm) {
 
-        Administrador admAuth = admnistradorService.autenticarAdministrador(adm);
+        Farmacia admAuth = farmaciaService.autenticarAdministrador(adm);
 
         if (admAuth == null || admAuth.getLogin().equals("") || admAuth.getSenha().equals("")) {
             return new ResponseEntity<>(admAuth, HttpStatus.FORBIDDEN);

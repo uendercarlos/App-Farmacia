@@ -1,9 +1,7 @@
 
 package com.example.demo.controller;
 
-import com.example.demo.model.Imagem;
-import com.example.demo.model.Produto;
-import com.example.demo.model.Venda;
+import com.example.demo.model.Medicamentos;
 import com.example.demo.services.ImagemService;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -37,7 +35,7 @@ public class ImagemController {
             @RequestPart(value = "file", required = false) MultipartFile[] files
     ) {
 
-        Produto p = new Produto();
+        Medicamentos p = new Medicamentos();
         p.setId(id);
 
         for (MultipartFile f : files) {
@@ -51,6 +49,10 @@ public class ImagemController {
         return new ResponseEntity(HttpStatus.CREATED);
 
     }
+    
+    
+    
+    
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}", produces = MediaType.IMAGE_PNG_VALUE)
     public ResponseEntity<Resource> getImgProd(@PathVariable Long id) {
@@ -64,6 +66,10 @@ public class ImagemController {
         return new ResponseEntity(resource, HttpStatus.OK);
     }
 
+    
+    
+    
+    
     @RequestMapping(method = RequestMethod.DELETE,
             value = "/{id}")
     ResponseEntity removerImagem(@PathVariable Long id) {
@@ -73,6 +79,12 @@ public class ImagemController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    
+    
+    
+    
+    
+    
     @RequestMapping(method = RequestMethod.PUT)
     void editarImagem() {
         System.out.println("edita");

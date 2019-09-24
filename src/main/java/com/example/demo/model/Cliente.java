@@ -1,27 +1,33 @@
 
 package com.example.demo.model;
 
-import javax.persistence.Column;
+
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 /*
  
   @author Alcídia Cristina
  */
 @Entity
-public class Cliente {
-   
+public class Cliente implements Serializable{
     private Long id;
+    @NotEmpty
     private String nome;
-    private Long telefone;
+    @NotEmpty
     private String email;
     private String senha;
    
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -38,23 +44,6 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public Long getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(Long telefone) {
-        this.telefone = telefone;
-    }
-
-    @Column(unique = true, nullable = false)
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getSenha() {
         return senha;
     }
@@ -63,4 +52,15 @@ public class Cliente {
         this.senha = senha;
     }
     
-}
+    
+    /*@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})*/
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+   
+    }

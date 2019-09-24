@@ -1,7 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.services.FileStorageProperties;
-import com.example.demo.services.FiltroAdministrador;
+import com.example.demo.services.FiltroFarmacia;
 import com.example.demo.services.FiltroCliente;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,7 +23,7 @@ public class DemoApplication {
     @Bean
     public FilterRegistrationBean filtroJwtAdministrador(){
         FilterRegistrationBean fr = new FilterRegistrationBean();
-        fr.setFilter(new FiltroAdministrador());
+        fr.setFilter(new FiltroFarmacia());
         fr.addUrlPatterns("/admin/*");
         return fr;
     }

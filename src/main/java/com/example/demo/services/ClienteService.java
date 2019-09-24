@@ -3,6 +3,7 @@ package com.example.demo.services;
 
 import com.example.demo.model.Cliente;
 import com.example.demo.repository.ClienteRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,8 +36,12 @@ public class ClienteService {
 
    public Cliente autenticarCliente(Cliente cli) {
  return clienteRepository.findByEmailAndSenha(cli.getEmail(),cli.getSenha());
-       
-       
+     }
+   
+   
+    public List<Cliente> buscaTodosCliente(){
+        return clienteRepository.findAll();
+        
     }
     
 }

@@ -2,7 +2,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Categoria;
-import com.example.demo.model.Produto;
+import com.example.demo.model.Medicamentos;
 import com.example.demo.services.CategoriaService;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -36,6 +36,9 @@ public class CategoriaController {
 
     }
 
+    
+    
+    
     @RequestMapping(method = RequestMethod.DELETE,
             value = "/admin/categoria/{id}")
     ResponseEntity removerCategoria(@PathVariable Long id) {
@@ -44,29 +47,47 @@ public class CategoriaController {
        
        return new ResponseEntity(HttpStatus.OK);
     }
+    
+    
+    
+    
 
     @RequestMapping(method = RequestMethod.PUT)
     void editarCategoria() {
         System.out.println("edita");
     }
-
+    
+    
+    
+    /*@RequestMapping(method = RequestMethod.PUT, value = "/adminAut/categoria")
+    public ResponseEntity editarCategoria(@RequestBody Categoria categoria){
+        categoriaService.editarCategoria(categoria);
+        
+        return new ResponseEntity(HttpStatus.OK);
+    }
+    */
+    
+    
+    
     @RequestMapping(method = RequestMethod.GET,
             value = "/categoria/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity <List<Produto>> mostraCategoria(@PathVariable Long id) {
+    ResponseEntity <List<Medicamentos>> mostraCategoria(@PathVariable Long id) {
         
         Categoria cat = new Categoria();
         cat.setId(id);
-        List<Produto> produtos;
+        List<Medicamentos> medicamento;
         
         try {
-            produtos = categoriaService.buscaTodosProdutosCategoria(cat);
+            medicamento = (List<Medicamentos>) categoriaService.buscarCategoria(id);
 
         } catch (NoSuchElementException e) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
 
-        return new ResponseEntity(produtos, HttpStatus.OK);
+        return new ResponseEntity(medicamento, HttpStatus.OK);
     }
+    
+   
     
     @RequestMapping(method = RequestMethod.GET,
             value = "/categoria", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -74,7 +95,7 @@ public class CategoriaController {
     
             List <Categoria> cat;
         try {
-            cat = categoriaService.buscaTodasCategorias();
+            cat = categoriaService.buscarTodasCategorias();
 
         } catch (NoSuchElementException e) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);

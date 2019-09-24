@@ -6,13 +6,11 @@
 package com.example.demo.services;
 
 import com.example.demo.model.Categoria;
-import com.example.demo.model.Produto;
 import com.example.demo.repository.CategoriaRepository;
-import com.example.demo.repository.ItemCarrinhoRepository;
-import com.example.demo.repository.ProdutoRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 /**
  *
@@ -23,8 +21,7 @@ public class CategoriaService {
 
     @Autowired
     CategoriaRepository categoriaRepository;
-    @Autowired
-    ProdutoRepository produtoRepository;
+    
 
     public void cadastrarCategoria(Categoria cat) {
         categoriaRepository.save(cat);
@@ -40,12 +37,13 @@ public class CategoriaService {
 
     
 
-    public List<Produto> buscaTodosProdutosCategoria(Categoria cat) {
-        return produtoRepository.findByCategoria(cat);
+    public Categoria buscarCategoria(Long id) {
+        return categoriaRepository.findById(id).get();
 
     }
     
-    public List<Categoria> buscaTodasCategorias(){
+   
+    public List<Categoria> buscarTodasCategorias(){
         return categoriaRepository.findAll();
     }
     

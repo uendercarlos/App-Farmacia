@@ -5,23 +5,23 @@
  */
 package com.example.demo.services;
 
-import com.example.demo.model.Administrador;
-import com.example.demo.repository.AdministradorRepository;
+import com.example.demo.model.Farmacia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.demo.repository.FarmaciaRepository;
 
 /**
  *
  * @author Alcídia Cristina
  */
 @Service
-public class AdministradorService {
+public class FarmaciaService {
     
     @Autowired   
-    AdministradorRepository administradorRepository;
+    FarmaciaRepository farmaciaRepository;
 
-    public Administrador autenticarAdministrador(Administrador adm) {
-        return administradorRepository.findByLoginAndSenha(adm.getLogin(),adm.getSenha());
+    public Farmacia autenticarAdministrador(Farmacia adm) {
+        return farmaciaRepository.findByLoginAndSenha(adm.getLogin(),adm.getSenha());
         
     }
     
