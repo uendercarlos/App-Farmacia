@@ -2,6 +2,7 @@
 package com.example.demo.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -41,7 +42,7 @@ public class Medicamentos implements Serializable{
     
     private double preco;
     
-    private List<Imagem> imagens;
+    private Imagem imagens;
     private Farmacia farmacias;
     
     @Id
@@ -78,21 +79,26 @@ public class Medicamentos implements Serializable{
         this.quantidade = quantidade;
     }
     
+    /*OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @JoinColumn(name = "medicamento_id") lista de imagens*/
     
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinColumn(name = "medicamento_id")
-    public List<Imagem> getImagens() {
+     @OneToOne
+     @JsonIgnore
+     public Imagem getImagens() {
         return imagens;
     }
 
-    public void setImagens(List<Imagem> imagens) {
+    public void setImagens(Imagem imagens) {
         this.imagens = imagens;
     }
+    
 
 
     public String getPrincipioAtivo() {
         return principioAtivo;
     }
+
+   
 
     public void setPrincipioAtivo(String principioAtivo) {
         this.principioAtivo = principioAtivo;

@@ -34,6 +34,7 @@ public class Farmacia implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotEmpty
     public Long getId() {
         return id;
     }
@@ -41,7 +42,7 @@ public class Farmacia implements Serializable{
     public void setId(Long id) {
         this.id = id;
     }
-
+    @NotEmpty
     public String getLogin() {
         return login;
     }
@@ -49,7 +50,7 @@ public class Farmacia implements Serializable{
     public void setLogin(String login) {
         this.login = login;
     }
-
+    @NotEmpty
     public String getSenha() {
         return senha;
     }
@@ -57,7 +58,7 @@ public class Farmacia implements Serializable{
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
+    @NotEmpty
     public String getNome() {
         return nome;
     }
@@ -65,7 +66,7 @@ public class Farmacia implements Serializable{
     public void setNome(String nome) {
         this.nome = nome;
     }
-
+    @NotEmpty
     public String getTelefone() {
         return telefone;
     }
@@ -73,7 +74,7 @@ public class Farmacia implements Serializable{
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    
+    @NotEmpty
     public String getEndereço() {
         return endereço;
     }
@@ -81,7 +82,7 @@ public class Farmacia implements Serializable{
     public void setEndereço(String endereço) {
         this.endereço = endereço;
     }
-
+    @NotEmpty
     public String getCnpj() {
         return cnpj;
     }
@@ -89,7 +90,7 @@ public class Farmacia implements Serializable{
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
-
+    @NotEmpty
     public String getEmail() {
         return email;
     }

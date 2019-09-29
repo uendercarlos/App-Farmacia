@@ -23,6 +23,23 @@ public class FarmaciaService {
     public Farmacia autenticarAdministrador(Farmacia adm) {
         return farmaciaRepository.findByLoginAndSenha(adm.getLogin(),adm.getSenha());
         
+           
+    }
+    
+    public Farmacia cadastrarFarmacia(Farmacia adm){
+       return farmaciaRepository.save(adm);
+    }
+    
+    public void editarFarmacia(Farmacia adm){
+        farmaciaRepository.save(adm);
+    }
+    
+    public void excluirFarmacia(Long id){
+        farmaciaRepository.deleteById(id);
+    }
+    
+     public Farmacia buscarFarmacia(Long id){
+        return farmaciaRepository.findById(id).get();
     }
     
 }
