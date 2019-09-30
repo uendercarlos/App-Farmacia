@@ -39,7 +39,7 @@ public class Imagem implements Serializable{
         this.patch = patch;
     }
     
-    @OneToOne()
+    @OneToOne
     @JsonIgnore
     public Medicamentos getMedicamento() {
         return medicamento;

@@ -36,19 +36,27 @@ public class MedicamentoService {
     public List<Medicamentos> consultaTodosMedicamentos(){
         return medicamentoRepository.findAll();
     }
+    
+    
+    
+    List<Medicamentos> ordenarPorMenorPreco(String nome, String principioAtivo){
+        
+    
+        return medicamentoRepository.findyByNomeOrPrincipioAtivoOrderbyPrecoAsc(nome, principioAtivo);
+        
+    }
+    
+    
+    
+    
+    
 }
 
 
-    /**
-     Essa parte aqui tá dando erro!!
     
-    public List<Medicamentos> ordenarPorMenorPreco(String nome, String principioAtivo, double preco){
-        
+     
     
-        return medicamentoRepository.findyByNomeAndPrincipioAtivoOrderbyPrecoAsc(nome, principioAtivo, preco);
-        
-    }
-    */
 
-    
+
+   
 

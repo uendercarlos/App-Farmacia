@@ -86,16 +86,16 @@ public class MedicamentoController {
     
     /*
     @RequestMapping(method = RequestMethod.GET, value = "/produto", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List <Medicamentos>> ordenarPorMenorPreco(String nome, String principioAtivo, double preco){
+    ResponseEntity<List <Medicamentos>> ordenarPorMenorPreco(String nome, String principioAtivo){
                 List <Medicamentos> pro;
         try {
-            pro = medicamentoService.ordenarPorMenorPreco(nome, principioAtivo, preco);
+            pro = medicamentoService.ordenarPorMenorPreco(nome, principioAtivo);
 
         } catch (NoSuchElementException e) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity(pro, HttpStatus.OK);
     }
-    
     */
+   
 }

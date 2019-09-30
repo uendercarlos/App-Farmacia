@@ -13,10 +13,10 @@ import org.springframework.data.repository.query.Param;
  */
 public interface MedicamentoRepository extends JpaRepository<Medicamentos, Long> {
     
+   
     
-    
-  /* public List<Medicamentos> findyByNomeAndPrincipioAtivoOrderbyPrecoAsc(@Param("nome")String nome,@Param("principio ativo") String principioAtivo,@Param("preco") double preco);
- */
+List<Medicamentos> findyByNomeOrPrincipioAtivoOrderbyPrecoAsc(@Param("nome")String nome,@Param("principioAtivo")String principioAtivo);
+ 
         
     }
        

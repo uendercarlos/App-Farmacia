@@ -41,8 +41,8 @@ public class Medicamentos implements Serializable{
     private String detentorRegistro;
     
     private double preco;
-    
-    private Imagem imagens;
+    private List<Imagem> imagens;
+    /*private Imagem imagens;*/
     private Farmacia farmacias;
     
     @Id
@@ -79,11 +79,17 @@ public class Medicamentos implements Serializable{
         this.quantidade = quantidade;
     }
     
-    /*OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinColumn(name = "medicamento_id") lista de imagens*/
-    
-     @OneToOne
-     @JsonIgnore
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @JoinColumn(name = "medicamento_id")
+    public List<Imagem> getImagens() {
+        return imagens;
+    }
+
+    public void setImagens(List<Imagem> imagens) {
+        this.imagens = imagens;
+    }
+    /*
+    @OneToOne
      public Imagem getImagens() {
         return imagens;
     }
@@ -91,7 +97,7 @@ public class Medicamentos implements Serializable{
     public void setImagens(Imagem imagens) {
         this.imagens = imagens;
     }
-    
+    */
 
 
     public String getPrincipioAtivo() {
