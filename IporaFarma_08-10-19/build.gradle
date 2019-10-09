@@ -1,0 +1,26 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.2.5'
+    compile "io.jsonwebtoken:jjwt-api:0.10.5"
+    compile "io.jsonwebtoken:jjwt-impl:0.10.5"
+    compile "io.jsonwebtoken:jjwt-jackson:0.10.5"
+}
+ext.mainClass= 'com.example.demo.DemoApplication'
