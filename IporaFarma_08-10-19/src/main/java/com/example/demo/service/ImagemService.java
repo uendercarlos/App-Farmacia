@@ -97,7 +97,7 @@ public class ImagemService {
 
             Imagem img = new Imagem();
             img.setPath(relativePath);
-            img.setProduto(p);
+            img.setMedicamento(p);
 
             imagemRepository.save(img);
 
@@ -129,5 +129,7 @@ public class ImagemService {
         throw new FileNotFoundException("File not found ");
 
     }
+
+   
 
 }

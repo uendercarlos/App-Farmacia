@@ -17,19 +17,19 @@ public class MedicamentosService {
      @Autowired   
     MedicamentosRepository produtoRepository;
     
-    public Medicamentos cadastrarProduto(Medicamentos pro) {
+    public Medicamentos cadastrarMedicamento(Medicamentos pro) {
        return produtoRepository.save(pro);
     }
 
-    public Medicamentos editarProduto(Medicamentos pro) {
+    public Medicamentos alterarMedicamento(Medicamentos pro) {
        return produtoRepository.save(pro);
     }
 
-    public void excluirProduto(Long id) {
+    public void desabilitarMedicamento(Long id) {
         produtoRepository.deleteById(id);
     }
 
-    public Medicamentos buscaProduto(Long id) {
+    public Medicamentos consultarMedicamento(Long id) {
         return produtoRepository.findById(id).get();
     }
     
@@ -45,4 +45,8 @@ public class MedicamentosService {
         
     }
     
+    
+     
+     
+     
 }

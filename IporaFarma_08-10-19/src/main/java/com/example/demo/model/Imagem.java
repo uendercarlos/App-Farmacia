@@ -21,7 +21,7 @@ import javax.persistence.OneToOne;
 public class Imagem {
     private Long id;
     private String path;
-    private Medicamentos produto;
+    private Medicamentos medicamento;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -44,14 +44,14 @@ public class Imagem {
 
     @OneToOne
     @JsonIgnore
-    @JoinColumn(name="produto_id")
-    public Medicamentos getProduto() {
-        return produto;
+    @JoinColumn(name="medicamento_id")
+    public Medicamentos getMedicamento() {
+        return medicamento;
     }
 
-    public void setProduto(Medicamentos produto) {
-        this.produto = produto;
+    public void setMedicamento(Medicamentos medicamento) {
+        this.medicamento = medicamento;
     }
-    
+   
     
 }

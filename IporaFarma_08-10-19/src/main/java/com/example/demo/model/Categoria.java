@@ -23,7 +23,7 @@ import org.hibernate.annotations.SQLDelete;
 public class Categoria {
     private Long id;
     private String nome;
-    private List<Medicamentos> produto;
+    private List<Medicamentos> medicamento;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -45,12 +45,12 @@ public class Categoria {
 
     @ManyToMany(mappedBy = "categoria")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    public List<Medicamentos> getProdutos() {
-        return produto;
+    public List<Medicamentos> getMedicamento() {
+        return medicamento;
     }
 
-    public void setProdutos(List<Medicamentos> produto) {
-        this.produto = produto;
+    public void setMedicamento(List<Medicamentos> medicamento) {
+        this.medicamento = medicamento;
     }
     
     

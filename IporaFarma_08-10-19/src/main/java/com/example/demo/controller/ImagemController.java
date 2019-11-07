@@ -80,11 +80,13 @@ public class ImagemController {
     
     
 
-    @RequestMapping(method = RequestMethod.PUT)
-    void editarImagem() {
-        System.out.println("edita");
-    }
+    @RequestMapping(method = RequestMethod.PUT, value = "/editaimagem/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity editarAdministrador(@PathVariable Imagem img) {
 
+        imagemService.editarImagem(img);
+
+        return new ResponseEntity(HttpStatus.CREATED);
     
 
+}
 }
